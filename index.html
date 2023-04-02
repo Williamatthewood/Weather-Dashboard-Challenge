@@ -16,15 +16,15 @@
     <header>
         <h1 class = "bg-primary text-light text-center p-3">Weather Dashboard</h1>
     </header>
-    <section>
-        <div id="left-bar">
-            <div class="m-4" id="search">
+    <section class="row">
+        <div class="col-12 col-md-3" id="left-bar">
+            <div id="search" class="m-4">
                 <form>
                     <div class="mb-3">
-                      <h2>Search for a City:</h2>
+                      <h4>Search for a City:</h4>
                       <input type="text" class="form-control" id="citySearch" placeholder="City Name">
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Search</button>
                   </form>
             </div>
             <div class="m-4" id="search-history">
@@ -37,11 +37,67 @@
                   </div>
             </div>
         </div>
-        <div id="content">
-            <div id="weather-card">
-
+        <div id="content" class="col-12 col-md-9">
+            <div id="weather-card" class="m-4">
+                <div class="card">
+                    <div class="card-body">
+                      <h3 class="card-title m-2">City Name <span id="current-date">(Date)</span></h3><span><i id="current-icon"></i></span>
+                      <p class="card-text m-3">Temp:<span id="current-temp"></span> </p>
+                      <p class="card-text m-3">Wind:<span id="current-wind"></span> </p>
+                      <p class="card-text m-3">Humidity<span id="current-humidity"></span> </p>
+                    </div>
+                  </div>
             </div>
-            <div id="forecast">
+            <div id="forecast" class="container">
+                <h4>5-day Forecast:</h4>
+                <div id="forecast-cards" class="row">
+                    <div class="card col-12 col-md-5 col-lg-2 m-2">
+                        <div class="card-body">
+                          <h5 class="card-title">Date 1</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Icon</h6>
+                          <p class="card-text">Temp: </p>
+                          <p class="card-text">Wind: </p>
+                          <p class="card-text">Humidity: </p>
+                        </div>
+                    </div>
+                    <div class="card col-12 col-md-5 col-lg-2 m-2">
+                        <div class="card-body">
+                          <h5 class="card-title">Date 2</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Icon</h6>
+                          <p class="card-text">Temp: </p>
+                          <p class="card-text">Wind: </p>
+                          <p class="card-text">Humidity: </p>
+                        </div>
+                    </div>
+                    <div class="card col-12 col-md-5 col-lg-2 m-2">
+                        <div class="card-body">
+                          <h5 class="card-title">Date 3</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Icon</h6>
+                          <p class="card-text">Temp: </p>
+                          <p class="card-text">Wind: </p>
+                          <p class="card-text">Humidity: </p>
+                        </div>
+                    </div>
+                    <div class="card col-12 col-md-5 col-lg-2 m-2">
+                        <div class="card-body">
+                          <h5 class="card-title">Date 4</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Icon</h6>
+                          <p class="card-text">Temp: </p>
+                          <p class="card-text">Wind: </p>
+                          <p class="card-text">Humidity: </p>
+                        </div>
+                    </div>
+                    <div class="card col-12 col-md-5 col-lg-2 m-2">
+                        <div class="card-body">
+                          <h5 class="card-title">Date 5</h5>
+                          <h6 class="card-subtitle mb-2 text-body-secondary">Icon</h6>
+                          <p class="card-text">Temp: </p>
+                          <p class="card-text">Wind: </p>
+                          <p class="card-text">Humidity: </p>
+                        </div>
+                    </div>
+
+                </div>
 
             </div>
         </div>
