@@ -46,12 +46,26 @@ var currentLon;
 var pastCities = [];
 
 function init(){
-    if (pastCities.length === 0){
-        return;
+
+    //pull data from local storage in a new variable
+    var storedCities = JSON.parse(localStorage.getItem("pastSearches"));
+    // fill the pastCities array with the local storage data storedCities
+    pastCities = storedCities;
+    // check if there are more than 8 items, if so, delete the oldest one/ index 0 to bring it down to 8 length
+    if(pastCities.length > 8){
+        pastCities.shift();
     }
 
-    var city = pastCities[pastCities.length - 1];
-    var initialFetchLink;
+    // loop through the array and create a button for each city saved in the array
+    for (let i = 0; i < pastCities.length; i++) {
+        var newButton = document.createElement("button");
+        newButton.className = "list-group-item list-group-item-action city-button"
+        newButton.innerText = pastCities[i];
+        pastCitiesList.appendChild(newButton);
+
+
+        
+    }
 }
 
 //runs when the search button is clicked to dynamically update the cards on the webpage
@@ -138,34 +152,24 @@ function searchForCity(event){
 function storeCityInLocal(city){
     //add a searched city to the pastCities array
     pastCities.push(city);
-    //store the array in local storage as pastSearches
-    localStorage.setItem("pastSearches", JSON.stringify(pastCities));
-    //set the array to empty
-    pastCities.length === 0;
-    //pull data from local storage in a new variable
-    var storedCities = JSON.parse(localStorage.getItem("pastSearches"));
-    // fill the pastCities array with the local storage data storedCities
-    pastCities = storedCities;
-    // check if there are more than 8 items, if so, delete the oldest one/ index 0 to bring it down to 8 length
-    if(pastCities.length > 8){
+    //check if pastCities is greater than 8, if so, delete first item to make it 8 again
+    if (pastCities.length > 8){
         pastCities.shift();
     }
-
-    // loop through the array and create a button for each city saved in the array
-    for (let i = 0; i < pastCities.length; i++) {
-        var newButton = document.createElement("button");
-        newButton.className = "list-group-item list-group-item-action city-button"
-        newButton.innerText = pastCities[i];
-        pastCitiesList.appendChild(newButton);
-
-
-        
+    //check if there are already 8 buttons, if so delete the top button
+    if (pastCitiesList.childElementCount === 8){
+        pastCitiesList.removeChild(pastCitiesList.firstElementChild);
     }
+    //create an append a new button at the bottom of the button list
+    var newButton = document.createElement("button");
+    newButton.className = "list-group-item list-group-item-action city-button"
+    newButton.innerText = city;
+    pastCitiesList.appendChild(newButton);
+    //store the array in local storage as pastSearches
+    localStorage.setItem("pastSearches", JSON.stringify(pastCities));
 
-    // for (let i = 0; i < pastCities.length; i++) {
-    //   localStorage.setItem(i, JSON.stringify(pastCities[i]));  
-        
-    // }
+    
+
 }
 
 // getAPI(requestURL);
