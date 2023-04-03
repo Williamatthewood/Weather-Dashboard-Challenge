@@ -20,6 +20,7 @@ THEN I am again presented with current and future conditions for that city
 
 ## Description
 
+The Weather Dashboard takes the users search request and uses 2 APIs. The GeoCoder API to find the latitude and longitude and then uses that information to query the OpenWeather API to find the current and projected weather conditions for the given city. Search results are saved into local storage with some slight validation to help the user get the correct data. On the left, the user can simply click previous searches to get those results again. 
 
 
 ## Screenshots
