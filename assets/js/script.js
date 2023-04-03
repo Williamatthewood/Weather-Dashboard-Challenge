@@ -10,6 +10,36 @@ var currentHumidity = document.getElementById("current-humidity");
 var searchButton = document.getElementById("search-btn");
 var citySearchText = document.getElementById("city-search");
 
+var day1Date = document.getElementById("day-1-date");
+var day1Icon = document.getElementById("day-1-icon");
+var day1Temp = document.getElementById("day-1-temp");
+var day1Wind = document.getElementById("day-1-wind");
+var day1Humidity = document.getElementById("day-1-humidity");
+
+var day2Date = document.getElementById("day-2-date");
+var day2Icon = document.getElementById("day-2-icon");
+var day2Temp = document.getElementById("day-2-temp");
+var day2Wind = document.getElementById("day-2-wind");
+var day2Humidity = document.getElementById("day-2-humidity");
+
+var day3Date = document.getElementById("day-3-date");
+var day3Icon = document.getElementById("day-3-icon");
+var day3Temp = document.getElementById("day-3-temp");
+var day3Wind = document.getElementById("day-3-wind");
+var day3Humidity = document.getElementById("day-3-humidity");
+
+var day4Date = document.getElementById("day-4-date");
+var day4Icon = document.getElementById("day-4-icon");
+var day4Temp = document.getElementById("day-4-temp");
+var day4Wind = document.getElementById("day-4-wind");
+var day4Humidity = document.getElementById("day-4-humidity");
+
+var day5Date = document.getElementById("day-5-date");
+var day5Icon = document.getElementById("day-5-icon");
+var day5Temp = document.getElementById("day-5-temp");
+var day5Wind = document.getElementById("day-5-wind");
+var day5Humidity = document.getElementById("day-5-humidity");
+
 var currentLat;
 var currentLon;
 
@@ -37,6 +67,36 @@ function getAPIData(request){
             })
             .then(function(data){
                 console.log("this is the forecast:", data, data.list[0]);
+
+                day1Date.innerText = data.list[3].dt_txt;
+                day1Icon.setAttribute("src", "http://openweathermap.org/img/w/" + data.list[3].weather[0].icon + ".png")
+                day1Temp.innerText = data.list[3].main.temp;
+                day1Wind.innerText = data.list[3].wind.speed;
+                day1Humidity.innerText = data.list[3].main.humidity;
+
+                day2Date.innerText = data.list[11].dt_txt;
+                day2Icon.setAttribute("src", "http://openweathermap.org/img/w/" + data.list[11].weather[0].icon + ".png")
+                day2Temp.innerText = data.list[11].main.temp;
+                day2Wind.innerText = data.list[11].wind.speed;
+                day2Humidity.innerText = data.list[11].main.humidity;
+
+                day3Date.innerText = data.list[19].dt_txt;
+                day3Icon.setAttribute("src", "http://openweathermap.org/img/w/" + data.list[19].weather[0].icon + ".png")
+                day3Temp.innerText = data.list[19].main.temp;
+                day3Wind.innerText = data.list[19].wind.speed;
+                day3Humidity.innerText = data.list[19].main.humidity;
+
+                day4Date.innerText = data.list[27].dt_txt;
+                day4Icon.setAttribute("src", "http://openweathermap.org/img/w/" + data.list[27].weather[0].icon + ".png")
+                day4Temp.innerText = data.list[27].main.temp;
+                day4Wind.innerText = data.list[27].wind.speed;
+                day4Humidity.innerText = data.list[27].main.humidity;
+
+                day5Date.innerText = data.list[35].dt_txt;
+                day5Icon.setAttribute("src", "http://openweathermap.org/img/w/" + data.list[35].weather[0].icon + ".png")
+                day5Temp.innerText = data.list[35].main.temp;
+                day5Wind.innerText = data.list[35].wind.speed;
+                day5Humidity.innerText = data.list[35].main.humidity;
             })
         })
         
