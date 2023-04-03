@@ -78,6 +78,10 @@ function getAPIData(request){
         return response.json();
     })
     .then(function(data){
+        if(data.length === 0){
+            alert("Invalid city. Please make sure you are spelling the city correctly.");
+            return;
+        }
         currentLat = data[0].lat;
         currentLon = data[0].lon;
         var currentAPICall = "https://api.openweathermap.org/data/2.5/weather?lat=" + currentLat + "&lon=" + currentLon + "&appid=f4ce1d986e6fe51c9fed10dd756f803b&units=imperial"
