@@ -1,4 +1,3 @@
-var APIKey = "f4ce1d986e6fe51c9fed10dd756f803b";
 var requestURL = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=f4ce1d986e6fe51c9fed10dd756f803b";
 
 var currentCity = document.getElementById("current-city");
@@ -43,6 +42,7 @@ var day5Humidity = document.getElementById("day-5-humidity");
 var currentLat;
 var currentLon;
 
+//runs when the search button is clicked to dynamically update the cards on the webpage
 function getAPIData(request){
     fetch(request).then(function(response){
         return response.json();
@@ -52,21 +52,23 @@ function getAPIData(request){
         currentLon = data[0].lon;
         var currentAPICall = "https://api.openweathermap.org/data/2.5/weather?lat=" + currentLat + "&lon=" + currentLon + "&appid=f4ce1d986e6fe51c9fed10dd756f803b&units=imperial"
         var forecastAPICall = "https://api.openweathermap.org/data/2.5/forecast?lat=" + currentLat + "&lon=" + currentLon + "&appid=f4ce1d986e6fe51c9fed10dd756f803b&units=imperial";
+        //fetches the current weather data
         fetch(currentAPICall).then(function(response){
             return response.json();
         })
         .then(function(data){
-            console.log("This is the current weather:", data);
+            //displays the current weather data from the API
             currentTemp.innerText = data.main.temp;
             currentIcon.setAttribute("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
             currentWind.innerText = data.wind.speed;
             currentHumidity.innerText = data.main.humidity;
             
+            //fetches the forecast data from the API
             fetch(forecastAPICall).then(function(response){
                 return response.json();
             })
             .then(function(data){
-                console.log("this is the forecast:", data, data.list[0]);
+                //displays the forecast data to the corresponding HTML elements for each card
 
                 day1Date.innerText = data.list[3].dt_txt;
                 day1Icon.setAttribute("src", "http://openweathermap.org/img/w/" + data.list[3].weather[0].icon + ".png")
