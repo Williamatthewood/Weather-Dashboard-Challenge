@@ -16,7 +16,7 @@
     <header>
         <h1 class = "bg-primary text-light text-center p-3">Weather Dashboard</h1>
     </header>
-    <section class="row">
+    <section class="row bg-light">
         <div class="col-12 col-md-3" id="left-bar">
             <div id="search" class="m-4">
                 <form>
@@ -41,7 +41,7 @@
             <div id="weather-card" class="m-4">
                 <div class="card">
                     <div class="card-body">
-                      <h3 id="current-city" class="card-title m-2">City Name <span id="current-date">(Date)</span></h3><span><img id="current-icon" src="" alt="weather icon"></span>
+                      <h3 id="current-city" class="card-title m-2">City Name </h3><span><img id="current-icon" src="" alt="weather icon"></span>
                       <p class="card-text m-3">Temp: <span id="current-temp"></span> &deg;F </p>
                       <p class="card-text m-3">Wind: <span id="current-wind"></span> MPH </p>
                       <p class="card-text m-3">Humidity: <span id="current-humidity"></span> % </p>
@@ -51,49 +51,49 @@
             <div id="forecast" class="container">
                 <h4>5-day Forecast:</h4>
                 <div id="forecast-cards" class="row">
-                    <div class="card col-12 col-md-5 col-lg-2 m-2">
+                    <div class="card col-12 col-md-5 col-lg-2 m-2 bg-dark text-light">
                         <div class="card-body">
-                          <h5 class="card-title">Date 1</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Icon</h6>
-                          <p class="card-text">Temp: </p>
-                          <p class="card-text">Wind: </p>
-                          <p class="card-text">Humidity: </p>
+                          <h5 id="day-1-date" class="card-title">Day 1</h5>
+                          <img id="day-1-icon" src="" alt="weather-icon">
+                          <p class="card-text">Temp: <span id="day-1-temp"></span> &deg;F</p>
+                          <p class="card-text">Wind: <span id="day-1-wind"></span> MPH</p>
+                          <p class="card-text">Humidity: <span id="day-1-humidity"></span> %</p>
                         </div>
                     </div>
-                    <div class="card col-12 col-md-5 col-lg-2 m-2">
+                    <div class="card col-12 col-md-5 col-lg-2 m-2 bg-dark text-light">
                         <div class="card-body">
-                          <h5 class="card-title">Date 2</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Icon</h6>
-                          <p class="card-text">Temp: </p>
-                          <p class="card-text">Wind: </p>
-                          <p class="card-text">Humidity: </p>
+                          <h5 id="day-2-date" class="card-title">Day 2</h5>
+                          <img id="day-2-icon" src="" alt="weather-icon">
+                          <p class="card-text">Temp: <span id="day-2-temp"></span> &deg;F</p>
+                          <p class="card-text">Wind: <span id="day-2-wind"></span> MPH</p>
+                          <p class="card-text">Humidity: <span id="day-3-humidity"></span> %</p>
                         </div>
                     </div>
-                    <div class="card col-12 col-md-5 col-lg-2 m-2">
+                    <div class="card col-12 col-md-5 col-lg-2 m-2 bg-dark text-light">
                         <div class="card-body">
-                          <h5 class="card-title">Date 3</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Icon</h6>
-                          <p class="card-text">Temp: </p>
-                          <p class="card-text">Wind: </p>
-                          <p class="card-text">Humidity: </p>
+                          <h5 id="day-3-date" class="card-title">Day 3</h5>
+                          <img id="day-3-icon" src="" alt="weather-icon">
+                          <p class="card-text">Temp: <span id="day-3-temp"></span> &deg;F</p>
+                          <p class="card-text">Wind: <span id="day-3-wind"></span> MPH</p>
+                          <p class="card-text">Humidity: <span id="day-3-humidity"></span> %</p>
                         </div>
                     </div>
-                    <div class="card col-12 col-md-5 col-lg-2 m-2">
+                    <div class="card col-12 col-md-5 col-lg-2 m-2 bg-dark text-light">
                         <div class="card-body">
-                          <h5 class="card-title">Date 4</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Icon</h6>
-                          <p class="card-text">Temp: </p>
-                          <p class="card-text">Wind: </p>
-                          <p class="card-text">Humidity: </p>
+                          <h5 id="day-4-date" class="card-title">Day 4</h5>
+                          <img id="day-4-icon" src="" alt="weather-icon">
+                          <p class="card-text">Temp: <span id="day-4-temp"></span> &deg;F</p>
+                          <p class="card-text">Wind: <span id="day-4-wind"></span> MPH</p>
+                          <p class="card-text">Humidity: <span id="day-4-humidity"></span> %</p>
                         </div>
                     </div>
-                    <div class="card col-12 col-md-5 col-lg-2 m-2">
+                    <div class="card col-12 col-md-5 col-lg-2 m-2 bg-dark text-light">
                         <div class="card-body">
-                          <h5 class="card-title">Date 5</h5>
-                          <h6 class="card-subtitle mb-2 text-body-secondary">Icon</h6>
-                          <p class="card-text">Temp: </p>
-                          <p class="card-text">Wind: </p>
-                          <p class="card-text">Humidity: </p>
+                          <h5 id="day-5-date" class="card-title">Day 5</h5>
+                          <img id="day-5-icon" src="" alt="weather-icon">
+                          <p class="card-text">Temp: <span id="day-5-temp"></span> &deg;F</p>
+                          <p class="card-text">Wind: <span id="day-5-wind"></span> MPH</p>
+                          <p class="card-text">Humidity: <span id="day-5-humidity"></span> %</p>
                         </div>
                     </div>
 
