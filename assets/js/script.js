@@ -50,7 +50,12 @@ function init(){
     //pull data from local storage in a new variable
     var storedCities = JSON.parse(localStorage.getItem("pastSearches"));
     // fill the pastCities array with the local storage data storedCities
-    pastCities = storedCities;
+    if(storedCities !== null){
+        pastCities = storedCities;
+    } else {
+        return;
+    }
+    
     // check if there are more than 8 items, if so, delete the oldest one/ index 0 to bring it down to 8 length
     if(pastCities.length > 8){
         pastCities.shift();
@@ -176,4 +181,4 @@ function storeCityInLocal(city){
 
 searchButton.addEventListener("click", searchForCity);
 
-// init();
+init();
