@@ -1,5 +1,4 @@
-var requestURL = "http://api.openweathermap.org/geo/1.0/direct?q=London&limit=5&appid=f4ce1d986e6fe51c9fed10dd756f803b";
-
+//core HTML Elements
 var currentCity = document.getElementById("current-city");
 var currentDate = document.getElementById("current-date");
 var currentIcon = document.getElementById("current-icon");
@@ -40,6 +39,7 @@ var day5Temp = document.getElementById("day-5-temp");
 var day5Wind = document.getElementById("day-5-wind");
 var day5Humidity = document.getElementById("day-5-humidity");
 
+//Dynamic variables
 var currentLat;
 var currentLon;
 
@@ -150,11 +150,23 @@ function searchForCity(event){
 
     citySearchText.value = "";
     
-    
+}
+
+function searchForPastCity(event){
+    event.preventDefault();
+    var city = event.target.innerText;
+    storeCityInLocal(city);
+    currentCity.innerText = city;
+    var APICall = "http://api.openweathermap.org/geo/1.0/direct?q=" +city+ "&limit=1&appid=f4ce1d986e6fe51c9fed10dd756f803b"
+    getAPIData(APICall);
+
 
 }
 
 function storeCityInLocal(city){
+    if (pastCities.includes(city)){
+        return
+    }
     //add a searched city to the pastCities array
     pastCities.push(city);
     //check if pastCities is greater than 8, if so, delete first item to make it 8 again
@@ -177,8 +189,10 @@ function storeCityInLocal(city){
 
 }
 
-// getAPI(requestURL);
+
+
 
 searchButton.addEventListener("click", searchForCity);
+pastCitiesList.addEventListener("click", searchForPastCity);
 
 init();
