@@ -8,6 +8,7 @@ var currentWind = document.getElementById("current-wind");
 var currentHumidity = document.getElementById("current-humidity");
 var searchButton = document.getElementById("search-btn");
 var citySearchText = document.getElementById("city-search");
+var pastCitiesList = document.getElementById("past-cities");
 
 var day1Date = document.getElementById("day-1-date");
 var day1Icon = document.getElementById("day-1-icon");
@@ -41,6 +42,17 @@ var day5Humidity = document.getElementById("day-5-humidity");
 
 var currentLat;
 var currentLon;
+
+var pastCities = [];
+
+function init(){
+    if (pastCities.length === 0){
+        return;
+    }
+
+    var city = pastCities[pastCities.length - 1];
+    var initialFetchLink;
+}
 
 //runs when the search button is clicked to dynamically update the cards on the webpage
 function getAPIData(request){
@@ -108,6 +120,7 @@ function getAPIData(request){
 function searchForCity(event){
     event.preventDefault();
     var city = citySearchText.value;
+    storeCityInLocal(city);
     currentCity.innerText = city;
     var APICall = "http://api.openweathermap.org/geo/1.0/direct?q=" +city+ "&limit=1&appid=f4ce1d986e6fe51c9fed10dd756f803b"
     if (city === ""){
@@ -122,6 +135,27 @@ function searchForCity(event){
 
 }
 
+function storeCityInLocal(city){
+    pastCities.push(city);
+    localStorage.setItem("pastSearches", JSON.stringify(pastCities));
+    pastCities.length === 0;
+    var storedCities = JSON.parse(localStorage.getItem("pastSearches"));
+    pastCities = storedCities;
+    // for (let i = 0; i < pastCities.length; i++) {
+    //   localStorage.setItem(i, JSON.stringify(pastCities[i]));  
+        
+    // }
+
+    for (let i = 0; i < pastCities.length; i++) {
+        var newButton = document.createElement("button");
+        newButton.className = "list-group-item list-group-item-action city-button"
+
+        
+    }
+}
+
 // getAPI(requestURL);
 
 searchButton.addEventListener("click", searchForCity);
+
+// init();
