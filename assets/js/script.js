@@ -98,7 +98,7 @@ function getAPIData(request){
             //displays the current weather data from the API
             currentTemp.innerHTML = "Temp: " + data.main.temp + "\u00B0F";
             currentIcon.classList.remove("hidden");
-            currentIcon.setAttribute("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
+            currentIcon.setAttribute("src", "https://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
             currentWind.innerText = "Wind: " + data.wind.speed + " MPH";
             currentHumidity.innerText = "Humidity: " + data.main.humidity + "%";
             
