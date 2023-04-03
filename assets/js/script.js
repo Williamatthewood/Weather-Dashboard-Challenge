@@ -42,7 +42,6 @@ var day5Humidity = document.getElementById("day-5-humidity");
 //Dynamic variables
 var currentLat;
 var currentLon;
-
 var pastCities = [];
 
 function init(){
@@ -139,21 +138,30 @@ function getAPIData(request){
 function searchForCity(event){
     event.preventDefault();
     var city = citySearchText.value;
+    //capitalizes the first character of what is typed
+    city = city.charAt(0).toUpperCase() + city.slice(1);
+    //store the city in local storage and create a button for it
     storeCityInLocal(city);
+    //update the current city to display the search result
     currentCity.innerText = city;
+    //calls the API based on the queried city
     var APICall = "http://api.openweathermap.org/geo/1.0/direct?q=" +city+ "&limit=1&appid=f4ce1d986e6fe51c9fed10dd756f803b"
+    //validation to confirm something is typed into the search box
     if (city === ""){
         alert("You must type in a city name");
         return;
     }
+    //use the generated link to fetch from the API database
     getAPIData(APICall);
-
+    //reset the search field to blank
     citySearchText.value = "";
     
 }
 
+//same as searchForCity, but for clicked past cities from the list
 function searchForPastCity(event){
     event.preventDefault();
+    //gets the text from the innerText of the clicked button
     var city = event.target.innerText;
     storeCityInLocal(city);
     currentCity.innerText = city;
