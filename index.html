@@ -29,7 +29,7 @@
             </div>
             <div class="m-4" id="search-history">
                 <div id="past-cities" class="list-group">
-                    
+
                 </div>
             </div>
         </div>
@@ -37,17 +37,18 @@
             <div id="weather-card" class="m-4">
                 <div class="card">
                     <div class="card-body">
-                      <h3 id="current-city" class="card-title m-2">City Name </h3>
-                      <img id="current-icon" src="" alt="weather icon">
-                      <p class="card-text m-3">Temp: <span id="current-temp"></span> &deg;F </p>
-                      <p class="card-text m-3">Wind: <span id="current-wind"></span> MPH </p>
-                      <p class="card-text m-3">Humidity: <span id="current-humidity"></span> % </p>
+                        <h3 id="placeholder-text">Search for a city for weather data!</h3>
+                        <h3 id="current-city" class="card-title m-2"> </h3>
+                        <img id="current-icon" class="hidden" src="" alt="weather icon">
+                        <p class="card-text m-3"><span id="current-temp"></span></p>
+                        <p class="card-text m-3"><span id="current-wind"></span></p>
+                        <p class="card-text m-3"><span id="current-humidity"></span></p>
                     </div>
                   </div>
             </div>
             <div id="forecast" class="container">
                 <h4>5-day Forecast:</h4>
-                <div id="forecast-cards" class="row">
+                <div id="forecast-cards" class="row hidden">
                     <div class="card col-12 col-md-5 col-lg-2 m-2 bg-dark text-light">
                         <div class="card-body">
                           <h5 id="day-1-date" class="card-title">Day 1</h5>

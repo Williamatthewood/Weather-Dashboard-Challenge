@@ -8,6 +8,8 @@ var currentHumidity = document.getElementById("current-humidity");
 var searchButton = document.getElementById("search-btn");
 var citySearchText = document.getElementById("city-search");
 var pastCitiesList = document.getElementById("past-cities");
+var placeholderText = document.getElementById("placeholder-text");
+var forecastCards = document.getElementById("forecast-cards");
 
 var day1Date = document.getElementById("day-1-date");
 var day1Icon = document.getElementById("day-1-icon");
@@ -91,17 +93,23 @@ function getAPIData(request){
             return response.json();
         })
         .then(function(data){
+            //hides placeholder text
+            placeholderText.className = "hidden";
             //displays the current weather data from the API
-            currentTemp.innerText = data.main.temp;
+            currentTemp.innerHTML = "Temp: " + data.main.temp + "\u00B0F";
+            currentIcon.classList.remove("hidden");
             currentIcon.setAttribute("src", "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png");
-            currentWind.innerText = data.wind.speed;
-            currentHumidity.innerText = data.main.humidity;
+            currentWind.innerText = "Wind: " + data.wind.speed + " MPH";
+            currentHumidity.innerText = "Humidity: " + data.main.humidity + "%";
             
             //fetches the forecast data from the API
             fetch(forecastAPICall).then(function(response){
                 return response.json();
             })
             .then(function(data){
+                //reveal the forecast cards by removing the hidden class
+                forecastCards.classList.remove("hidden");
+                
                 //displays the forecast data to the corresponding HTML elements for each card
 
                 day1Date.innerText = data.list[3].dt_txt;
