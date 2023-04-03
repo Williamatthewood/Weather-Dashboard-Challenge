@@ -157,7 +157,7 @@ function searchForCity(event){
     //update the current city to display the search result
     currentCity.innerText = city;
     //calls the API based on the queried city
-    var APICall = "http://api.openweathermap.org/geo/1.0/direct?q=" +city+ "&limit=1&appid=f4ce1d986e6fe51c9fed10dd756f803b"
+    var APICall = "https://api.openweathermap.org/geo/1.0/direct?q=" +city+ "&limit=1&appid=f4ce1d986e6fe51c9fed10dd756f803b"
     //validation to confirm something is typed into the search box
     if (city === ""){
         alert("You must type in a city name");
@@ -177,7 +177,7 @@ function searchForPastCity(event){
     var city = event.target.innerText;
     storeCityInLocal(city);
     currentCity.innerText = city;
-    var APICall = "http://api.openweathermap.org/geo/1.0/direct?q=" +city+ "&limit=1&appid=f4ce1d986e6fe51c9fed10dd756f803b"
+    var APICall = "https://api.openweathermap.org/geo/1.0/direct?q=" +city+ "&limit=1&appid=f4ce1d986e6fe51c9fed10dd756f803b"
     getAPIData(APICall);
 
 
