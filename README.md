@@ -25,6 +25,12 @@ The Weather Dashboard takes the users search request and uses 2 APIs. The GeoCod
 
 ## Screenshots
 
+<img width="1338" alt="Screenshot 2023-04-03 at 4 54 39 PM" src="https://user-images.githubusercontent.com/112597870/229636519-ee730c0f-085d-4aba-85e2-b3f300e118c3.png">
+
+<img width="1364" alt="Screenshot 2023-04-03 at 4 53 56 PM" src="https://user-images.githubusercontent.com/112597870/229636521-6346b6da-8bf9-48cf-b246-cb29bb8449e7.png">
 
 
 ## Deployed Application
+
+https://williamatthewood.github.io/Weather-Dashboard-Challenge/
+
